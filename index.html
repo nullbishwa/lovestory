@@ -26,20 +26,20 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      width: 85vw; /* Reduced width */
-      max-width: 300px; /* Restrict max width */
+      width: 85vw;
+      max-width: 300px;
     }
 
     .card {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 80vw; /* Reduce width */
-      max-width: 280px; /* Smaller max-width */
-      height: 50vh; /* Reduced height */
-      max-height: 400px; /* Smaller max height */
+      width: 80vw;
+      max-width: 280px;
+      height: 50vh;
+      max-height: 400px;
       background: #fff0f6;
-      border-radius: 20px; /* Slightly smaller border radius */
+      border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: center;
@@ -47,9 +47,9 @@
       transform: translate(-50%, -50%) scale(0.5);
       opacity: 0;
       text-align: center;
-      font-size: 1.5rem; /* Reduced font size */
+      font-size: 1.5rem;
       color: #b30059;
-      padding: 1rem; /* Adjusted padding */
+      padding: 1rem;
       transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1s ease;
     }
 
@@ -59,28 +59,9 @@
       border-radius: 15px;
     }
 
-    .btn {
-      position: absolute;
-      bottom: 20px; /* Adjusted button position */
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 1rem 1.5rem; /* Smaller button padding */
-      font-size: 1rem; /* Adjusted font size */
-      background: #ff005c;
-      color: white;
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-    .btn:hover {
-      background: #cc004c;
-    }
-
     .heart {
       position: absolute;
-      width: 12px; /* Smaller hearts */
+      width: 12px;
       height: 12px;
       background: red;
       transform: rotate(45deg);
@@ -136,7 +117,7 @@
 
     .happy-birthday-message {
       display: none;
-      font-size: 2rem; /* Adjusted font size */
+      font-size: 2rem;
       color: #ff005c;
       text-align: center;
       font-weight: bold;
@@ -180,14 +161,9 @@
     /* Responsive Design */
     @media (max-width: 768px) {
       .card {
-        font-size: 1.3rem; /* Slightly smaller text */
-        width: 75vw; /* Reduce width further */
-        height: 50vh; /* Reduce height */
-      }
-
-      .btn {
-        font-size: 0.9rem;
-        padding: 0.7rem 1.2rem;
+        font-size: 1.3rem;
+        width: 75vw;
+        height: 50vh;
       }
 
       .happy-birthday-message {
@@ -197,14 +173,9 @@
 
     @media (max-width: 480px) {
       .card {
-        font-size: 1.2rem; /* Smaller font size */
-        width: 85vw; /* Maximum width */
-        height: 45vh; /* Smaller height */
-      }
-
-      .btn {
-        font-size: 0.8rem;
-        padding: 0.6rem 1rem;
+        font-size: 1.2rem;
+        width: 85vw;
+        height: 45vh;
       }
 
       .happy-birthday-message {
@@ -221,7 +192,6 @@
   </audio>
 
   <div class="card-container" id="cardContainer"></div>
-  <button class="btn" onclick="spreadCard()">Next</button>
   <div class="happy-birthday-message" id="birthdayMessage">Happy Birthday Teddy! 🎉</div>
 
   <script>
@@ -272,7 +242,7 @@
     });
 
     function spreadCard() {
-      // Start background music on first button click
+      // Start background music on first tap
       if (cardIndex === 0) {
         audio.play().catch(e => {
           console.log("Playback error:", e);
@@ -310,6 +280,10 @@
         }
       }
     }
+
+    // Tap anywhere on the screen to trigger the card transition
+    document.body.addEventListener('click', spreadCard);
+
   </script>
 
 </body>
