@@ -29,25 +29,25 @@
     }
 
     .card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 420px; /* Increased from 350px */
-  height: 600px; /* Increased from 500px */
-  background: #fff0f6;
-  border-radius: 25px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  text-align: center;
-  font-size: 2rem; /* Slightly increased text size */
-  color: #b30059;
-  padding: 2rem; /* Increased padding */
-  transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1s ease;
-}
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 420px; /* Increased from 350px */
+      height: 600px; /* Increased from 500px */
+      background: #fff0f6;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+      text-align: center;
+      font-size: 2rem; /* Slightly increased text size */
+      color: #b30059;
+      padding: 2rem; /* Increased padding */
+      transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1s ease;
+    }
 
     .card img {
       max-width: 100%;
@@ -208,14 +208,6 @@
       "You are the light of my life 🌟"
     ];
 
-    const stickers = [
-      "https://www.pngmart.com/files/2/Boy-Baby-Cat-PNG-Clipart.png",
-      "https://www.pngmart.com/files/2/Girl-Baby-Cat-PNG-Image.png",
-      "https://upload.wikimedia.org/wikipedia/commons/6/6c/Birthday_cake_emoji.png",
-      "https://www.kindpng.com/picc/m/199-1990649_free-cute-kitty-love-png-transparent-png.png",
-      "https://cdn3.iconfinder.com/data/icons/valentines-day-15/64/heart-love-pink-512.png"
-    ];
-
     const container = document.getElementById('cardContainer');
     const audio = document.getElementById('backgroundMusic');
     let cardIndex = 0;
@@ -224,15 +216,6 @@
     wishes.forEach((wish, i) => {
       const card = document.createElement('div');
       card.className = 'card';
-
-      if (i !== wishes.length - 1) {
-        const randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
-        const stickerImg = document.createElement('img');
-        stickerImg.src = randomSticker;
-        stickerImg.style.width = '80px';
-        stickerImg.style.height = '80px';
-        card.appendChild(stickerImg);
-      }
 
       if (i === wishes.length - 1) {
         const photoImg = document.createElement('img');
