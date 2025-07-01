@@ -3,288 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday My Love</title>
+  <title>For My Love 💖</title>
   <style>
     body {
-      margin: 0;
-      background: linear-gradient(135deg, #4b0000, #cc0f44);
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-      height: 100vh;
+      background: #fff0f5;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .card-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      width: 85vw;
-      max-width: 300px;
-    }
-
-    .card {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 80vw;
-      max-width: 280px;
-      height: 50vh;
-      max-height: 400px;
-      background: #fff0f6;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      display: flex;
       align-items: center;
       justify-content: center;
-      transform: translate(-50%, -50%) scale(0.5);
-      opacity: 0;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #d6336c;
+      margin: 0;
       text-align: center;
-      font-size: 1.5rem;
-      color: #b30059;
-      padding: 1rem;
-      transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1s ease;
     }
-
-    .card img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 15px;
+    h1 {
+      font-size: 3em;
+      animation: pulse 2s infinite;
     }
-
-    .heart {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 10s infinite ease-in;
-      opacity: 0.7;
+    .hearts {
+      font-size: 2em;
+      margin: 10px 0;
+      animation: float 3s ease-in-out infinite;
     }
-
-    .heart::before,
-    .heart::after {
-      content: '';
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: red;
-      border-radius: 50%;
+    button {
+      padding: 1em 2em;
+      background: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s;
     }
-
-    .heart::before {
-      top: -6px;
-      left: 0;
+    button:hover {
+      background: #b52b59;
     }
-
-    .heart::after {
-      left: -6px;
-      top: 0;
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
-
     @keyframes float {
-      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-      100% { transform: translateY(-1200px) rotate(45deg); opacity: 0; }
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      25%, 75% { transform: scale(1.1); }
-      50% { transform: scale(1); }
-    }
-
-    @keyframes shuffleCards {
-      0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      50% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
-      }
-    }
-
-    .happy-birthday-message {
-      display: none;
-      font-size: 2rem;
-      color: #ff005c;
-      text-align: center;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px rgba(255, 0, 92, 0.7);
-      animation: messageAnimation 3s ease-in-out;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1000;
-    }
-
-    @keyframes messageAnimation {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-      }
-      50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.2);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-
-    .center-photo {
-      animation: movePhotoToCenter 1s ease-in-out forwards;
-    }
-
-    @keyframes movePhotoToCenter {
-      0% { transform: translate(-50%, -50%) scale(0.8); }
-      100% { transform: translate(-50%, -50%) scale(1); }
-    }
-
-    .center-photo img {
-      animation: heartbeat 1.5s infinite;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .card {
-        font-size: 1.3rem;
-        width: 75vw;
-        height: 50vh;
-      }
-
-      .happy-birthday-message {
-        font-size: 1.7rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        font-size: 1.2rem;
-        width: 85vw;
-        height: 45vh;
-      }
-
-      .happy-birthday-message {
-        font-size: 1.5rem;
-      }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <h1 id="message">I am so sorry for last night 😔</h1>
+  <div class="hearts">💔 💖 💔</div>
+  <button onclick="changeMessage()">Tap to see how much I love you</button>
 
-  <!-- Audio -->
-  <audio id="backgroundMusic" loop>
-    <source src="new.mp3" type="audio/mp3">
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
 
-  <div class="card-container" id="cardContainer"></div>
-  <div class="happy-birthday-message" id="birthdayMessage">Happy Birthday Teddy! 🎉</div>
-
   <script>
-    // Floating hearts
-    for (let i = 0; i < 40; i++) {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.top = Math.random() * 100 + 'vh';
-      heart.style.animationDuration = (4 + Math.random() * 6) + 's';
-      document.body.appendChild(heart);
-    }
-
-    const wishes = [
-      "Happy Birthday, my beautiful love! 💖",
-      "Every day with you is a gift 🌹",
-      "Your smile lights up my world ✨",
-      "You're my favorite person forever 💞",
-      "I fall for you more every second ❤️",
-      "You are my reason for happiness 😊",
-      "With you, everything is perfect 💝",
-      "You make my heart beat faster 💓",
-      "You are the light of my life 🌟"
+    const messages = [
+      "I deeply regret hurting you 💔",
+      "You mean the world to me 🌎",
+      "I promise to make things right 💖",
+      "You are my forever person 💑",
+      "Please forgive me, my love 😢"
     ];
+    let index = 0;
+    let musicStarted = false;
 
-    const container = document.getElementById('cardContainer');
-    const audio = document.getElementById('backgroundMusic');
-    let cardIndex = 0;
+    function changeMessage() {
+      // Change message
+      index = (index + 1) % messages.length;
+      document.getElementById("message").innerText = messages[index];
 
-    // Create cards
-    wishes.forEach((wish, i) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-
-      if (i === wishes.length - 1) {
-        const photoImg = document.createElement('img');
-        photoImg.src = 'IMG-20250505-WA0012.jpg'; // Replace with actual path or URL
-        photoImg.alt = 'Her Photo';
-        photoImg.style.width = '100%';
-        photoImg.style.height = '100%';
-        photoImg.style.objectFit = 'cover';
-        card.appendChild(photoImg);
-      } else {
-        card.innerHTML += wish;
-      }
-
-      container.appendChild(card);
-    });
-
-    function spreadCard() {
-      // Start background music on first tap
-      if (cardIndex === 0) {
-        audio.play().catch(e => {
-          console.log("Playback error:", e);
-        });
-      }
-
-      const cards = document.querySelectorAll('.card');
-      if (cardIndex < cards.length) {
-        const card = cards[cardIndex];
-
-        const offsetX = Math.random() * 500 - 250;
-        const offsetY = Math.random() * 300 - 150;
-        const angle = Math.random() * 60 - 30;
-
-        card.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
-        card.style.transitionDelay = '0.1s';
-        card.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) rotate(${angle}deg) scale(1)`;
-        card.style.opacity = 1;
-
-        card.style.setProperty('--x', `${offsetX}px`);
-        card.style.setProperty('--y', `${offsetY}px`);
-        card.style.setProperty('--r', `${angle}deg`);
-
-        cardIndex++;
-
-        if (cardIndex === cards.length) {
-          document.getElementById('birthdayMessage').style.display = 'block';
-
-          cards.forEach(card => {
-            card.style.animation = 'shuffleCards 2s ease-in-out';
-          });
-
-          const photoCard = cards[cards.length - 1];
-          photoCard.classList.add('center-photo');
-        }
+      // Start music on first click
+      if (!musicStarted) {
+        document.getElementById("bgMusic").play();
+        musicStarted = true;
       }
     }
-
-    // Tap anywhere on the screen to trigger the card transition
-    document.body.addEventListener('click', spreadCard);
-
   </script>
-
 </body>
 </html>
