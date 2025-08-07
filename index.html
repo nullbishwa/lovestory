@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>From My Heart 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: pink;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .envelope-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: pink;
+      flex-direction: column;
+    }
+
+    .envelope-container img {
+      width: 200px;
+      cursor: pointer;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .container {
+      display: none;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .container img {
+      width: 90vw;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .typewriter {
+      font-size: 24px;
+      color: #fff;
+      margin-top: 30px;
+      height: 100px;
+      padding: 0 20px;
+      min-height: 40px;
+    }
+
+    .heart {
+      position: fixed;
+      top: -20px;
+      font-size: 25px;
+      color: red;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Envelope Page -->
+<div class="envelope-container" id="envelopePage">
+  <h2>Click the envelope to open my heart 💌</h2>
+  <img src="envelope.png" alt="Open" onclick="startShayari()">
+</div>
+
+<!-- Main Content -->
+<div class="container" id="mainContent">
+  <img src="love.jpg" alt="us">
+  <div class="typewriter" id="typeText">❤️</div>
+</div>
+
+<!-- Audio -->
+<audio id="bgMusic">
+  <source src="bg.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const lines = [
+    "Main chahta hoon tu sabse zyada khush rahe... 🌸",
+    "Par kabhi kabhi main khud se hi haar jaata hoon... 💔",
+    "Main gusse mein bol jaata hoon jo dil mein hota hi nahi... 😔",
+    "Mujhe khud par bhi gussa aata hai, lekin sabse zyada dard tujhe diya... 💭",
+    "",
+    "Tere pyaar ne mujhe jeena sikhaya... 💕",
+    "Aur meri choti choti baaton ne tujhe thaka diya... 😢",
+    "Tu kehti hai tu thak gayi... main bhi jhuk gaya... 🫂",
+    "Main chhup ho gaya, lekin dil chilla raha tha sirf ek baat:",
+    "",
+    "\"Tu mat ja... Main theek ho jaunga, tere liye.\" 🌹",
+    "Tera pyaar meri dawa hai... Tu hi toh meri roshni hai... 🌟",
+    "Aaj bhi main sirf tere liye larne ki shakti pa rha hoon... 🤝",
+    "Aur ladte ladte ek baat samajh gaya hoon...",
+    "Tujh se badhkar kuch nahi... Aur na kabhi hoga.\" ❤️‍🔥" ,
+    "",
+    "Abse teri har baat manna karunga 🌹", 
+    "Kabhi bhi depression ya anxiety me nahi jaunga 💪",
+    "Kaise bataun ki tere bina kitna akela hoon 😢",
+    "Batane ke lafz nahi bache mere paas 😔",
+    "",
+    "Nahi bacha mere paas tumhe kuch bhi dene ke liye 💔",
+    "De chuka hoon tumhe sab kuch mera ❤️‍🔥",
+    "Ab to dene ke liye sirf yeh saansein bachi hain ❤️"
+  ];
+
+  function startShayari() {
+    // Hide envelope, show main content
+    document.getElementById("envelopePage").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+
+    // Play music
+    const music = document.getElementById("bgMusic");
+    music.play().catch(err => console.log("Autoplay blocked", err));
+
+    // Start heart rain
+    setInterval(createHeart, 300);
+
+    // Start typing
+    typeLine();
+  }
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerText = '💖';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+
+  const typeDiv = document.getElementById('typeText');
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  function typeLine() {
+    if (lineIndex >= lines.length) return;
+    const currentLine = lines[lineIndex];
+    if (charIndex <= currentLine.length) {
+      typeDiv.innerHTML = currentLine.substring(0, charIndex) + "🖋️";
+      charIndex++;
+      setTimeout(typeLine, 60);
+    } else {
+      setTimeout(() => {
+        typeDiv.innerHTML = "";
+        charIndex = 0;
+        lineIndex++;
+        setTimeout(typeLine, 800);
+      }, 1200);
+    }
+  }
+</script>
+
+</body>
+</html>
